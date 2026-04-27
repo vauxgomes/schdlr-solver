@@ -1,0 +1,52 @@
+{
+  "name": "schdlr-solver",
+  "version": "1.0.0",
+  "description": "Computational engine for academic timetabling using interval graph modeling, list coloring, and CSP",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm build",
+    "release": "release-it",
+    "release:dry": "release-it --dry-run"
+  },
+  "keywords": [
+    "graph",
+    "graph-coloring",
+    "list-coloring",
+    "interval-graph",
+    "timetabling",
+    "scheduling",
+    "csp",
+    "backtracking",
+    "algorithms",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^11.0.0",
+    "@types/node": "^25.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "release-it": "^20.0.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
+  }
+}
