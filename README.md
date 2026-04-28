@@ -44,7 +44,7 @@ The graph construction and resolution process happens in three isolated phases, 
 | | Configure `release-it` with conventional changelog for versioning and npm publishing | Done |
 | | Define core domain interfaces (`Professor`, `Subject`, `Slot`, `Allocation`) | Done |
 | | Define graph structures (`Vertex`, `Edge`, `ScheduleGraph`) | Done |
-| | Utility functions for time conversion (e.g. parsing `"HH:mm"` to continuous minutes) | ⬜ |
+| | Utility functions for time conversion (e.g. parsing `"HH:mm"` to continuous minutes) | Done |
 | | Utility functions for importing data from text files or input arguments | ⬜ |
 | **2 — Phase 1: Core Topology** | Implement the time intersection function $I(s_i, s_j)$ to detect overlapping slots | ⬜ |
 | | Build the base Graph Generator — isolated connected components per weekday | ⬜ |

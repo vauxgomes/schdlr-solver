@@ -1,4 +1,5 @@
 export type Day = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday'
+export type TimeString = `${number}:${number}`;
 
 export interface Professor {
   id: number
