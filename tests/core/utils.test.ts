@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
-  hasTimeClash,
+  hasConflict,
   nextDay,
   slotDuration,
   slotsAreAdjacent,
@@ -82,39 +82,39 @@ describe('violatesRestPeriod', () => {
 
 // --- Class detection
 
-describe('hasTimeClash', () => {
+describe('hasConflict', () => {
   it('returns true when slots overlap partially', () => {
     const a = makeSlot('Monday', 540, 660) // 9:00 → 11:00
     const b = makeSlot('Monday', 600, 720) // 10:00 → 12:00
 
-    expect(hasTimeClash(a, b)).toBe(true)
+    expect(hasConflict(a, b)).toBe(true)
   })
 
   it('returns true when one slot contains the other', () => {
     const a = makeSlot('Monday', 540, 720) // 9:00 → 12:00
     const b = makeSlot('Monday', 600, 660) // 10:00 → 11:00
 
-    expect(hasTimeClash(a, b)).toBe(true)
+    expect(hasConflict(a, b)).toBe(true)
   })
 
   it('returns false when slots are contiguous (no overlap)', () => {
     const a = makeSlot('Monday', 540, 630) // 9:00 → 10:30
     const b = makeSlot('Monday', 630, 720) // 10:30 → 12:00
 
-    expect(hasTimeClash(a, b)).toBe(false)
+    expect(hasConflict(a, b)).toBe(false)
   })
 
   it('returns false when slots are on different days', () => {
     const a = makeSlot('Monday', 540, 660)
     const b = makeSlot('Tuesday', 540, 660)
 
-    expect(hasTimeClash(a, b)).toBe(false)
+    expect(hasConflict(a, b)).toBe(false)
   })
 
   it('returns false when slots do not overlap', () => {
     const a = makeSlot('Monday', 540, 630) // 9:00 → 10:30
     const b = makeSlot('Monday', 720, 810) // 12:00 → 13:30
 
-    expect(hasTimeClash(a, b)).toBe(false)
+    expect(hasConflict(a, b)).toBe(false)
   })
 })

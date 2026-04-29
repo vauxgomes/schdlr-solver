@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
 
+import { programsToGraph } from './core/generator'
 import { describeSchedule, loadSchedule } from './io/reader'
 
 const cli = new Command()
@@ -14,6 +15,9 @@ cli
   .action(async (options: { file: string; verbose: boolean }) => {
     const programs = await loadSchedule(options.file)
     console.log('Schedule loaded successfully!')
+
+    const graph = programsToGraph(programs)
+    console.log('Graph generated successfully!')
 
     if (options.verbose) {
       console.log('\n--\nSchedule details:')

@@ -11,8 +11,8 @@ The problem is abstracted using graph theory as follows:
 ### 1. Graph Elements $G = (V, E)$
 
 * **Vertices ($V$):** Represent the pre-defined timeslots for each class.
-  $$V = \{ s_u \mid \forall u \in T, \forall s \in S_u \}$$
-  Where $T$ is the set of classes and $S_u$ is the set of available timeslots for class $u$.
+  $$V = \{ s_c \mid \forall c \in \mathcal{C}, \forall s \in S_c \}$$
+  Where $\mathcal{C}$ is the set of cohorts and $S_c$ is the set of available timeslots for cohort $c$.
 
 * **Edges ($E$):** Represent conflicts or constraints. An edge exists if the timeslots overlap or if they violate an injected business rule (e.g., inter-shift rest violation).
   $$E = \{ (v_i, v_j) \mid I(v_i, v_j) = 1 \lor R(v_i, v_j) = 1 \}$$
@@ -38,17 +38,17 @@ The graph construction and resolution process happens in three isolated phases, 
 
 ## Roadmap
 
-| Milestone | Task | Status |
+| Milestone | Task | Commit |
 |-----------|------|--------|
-| **1 — Foundation & Domain Modeling** | Initialize Node.js project with TypeScript, Vitest, and ESLint/Prettier | Done |
-| | Configure `release-it` with conventional changelog for versioning and npm publishing | Done |
-| | Define core domain interfaces (`Professor`, `Subject`, `Slot`, `Allocation`) | Done |
-| | Define graph structures (`Vertex`, `Edge`, `ScheduleGraph`) | Done |
-| | Utility functions for time conversion (e.g. parsing `"HH:mm"` to continuous minutes) | Done |
-| | Utility functions for importing data from text files or input arguments | Done |
-| **2 — Phase 1: Core Topology** | Implement the time intersection function $I(s_i, s_j)$ to detect overlapping slots | ⬜ |
-| | Build the base Graph Generator — isolated connected components per weekday | ⬜ |
-| | Unit tests: validate adjacency matrix (edges only on time conflicts) | ⬜ |
+| **1 — Foundation & Domain Modeling** | Initialize Node.js project with TypeScript, Vitest, and ESLint/Prettier | `69514aa` |
+| | Configure `release-it` with conventional changelog for versioning and npm publishing | `69514aa` |
+| | Define core domain interfaces (`Professor`, `Subject`, `Slot`, `Allocation`) | `b3e530a` |
+| | Define graph structures (`Vertex`, `Edge`, `ScheduleGraph`) | `b3e530a` |
+| | Utility functions for time conversion (e.g. parsing `"HH:mm"` to continuous minutes) | `59b91ea` |
+| | Utility functions for importing data from text files or input arguments | `6629523` |
+| **2 — Phase 1: Core Topology** | Implement the time intersection function $I(s_i, s_j)$ to detect overlapping slots | `d3e8244` |
+| | Build the base Graph Generator — isolated connected components per weekday | `d3e8244` |
+| | Unit tests: validate adjacency matrix (edges only on time conflicts) | `d3e8244` |
 | **3 — Phase 2 & 3: Constraint Injectors** | **Domain Restriction Injector**: filter color palette by professor's allowed working days | ⬜ |
 | | **Inter-shift Constraint Injector**: cross-day edges to enforce the 11-hour rest period | ⬜ |
 | | Unit tests: dummy edges correctly link $D$ (night) → $D+1$ (morning) | ⬜ |

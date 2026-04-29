@@ -18,7 +18,7 @@ export { loadSchedule, loadScheduleFromStream } from './io/reader'
 
 // Core
 export {
-  hasTimeClash,
+  hasConflict as hasTimeClash,
   minutesToTime,
   nextDay,
   slotDuration,

@@ -1,7 +1,10 @@
+import type { Slot } from './domain'
+
 export type EdgeType = 'conflict' | 'preference' | 'inter-day'
 
 export interface Vertex {
   id: number
+  name?: string | undefined
   cohortId: number
   slotId: number
   allocationId?: number | undefined // Representing the color of the vertex
@@ -35,11 +38,11 @@ export class ScheduleGraph {
     return this.vertices.has(id)
   }
 
-  addVertex({ id, cohortId, slotId, allocationId = undefined }: Vertex): void {
+  addVertex({ id, cohortId, slotId, name = undefined, allocationId = undefined }: Vertex): void {
     if (this.vertices.has(id)) throw new Error(`Vertex with id ${id} already exists.`)
 
     this.adjacencyList[id] = []
-    this.vertices.set(id, { id, cohortId, slotId, allocationId } satisfies Vertex)
+    this.vertices.set(id, { id, name, cohortId, slotId, allocationId } satisfies Vertex)
   }
 
   // --- Edges ---
@@ -93,5 +96,25 @@ export class ScheduleGraph {
 
   isComplete(): boolean {
     return Array.from(this.vertices.values()).every((v) => v.allocationId !== undefined)
+  }
+
+  // --- Export ---
+
+  toGraphviz(): string {
+    const lines: string[] = ['graph G {']
+
+    for (const v of this.vertices.values()) {
+      const color = v.allocationId !== undefined ? `\\na${v.allocationId}` : ''
+      lines.push(
+        `  v${v.id} [label="v${v.id}\\nc${v.cohortId}${v.name ? `\\n${v.name}` : ''}${color}"]`,
+      )
+    }
+
+    for (const edge of this.edges) {
+      lines.push(`  v${edge.u.id} -- v${edge.v.id} [label="${edge.type}"]`)
+    }
+
+    lines.push('}')
+    return lines.join('\n')
   }
 }

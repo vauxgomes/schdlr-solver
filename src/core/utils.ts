@@ -56,7 +56,7 @@ export function minutesToTime(minutes: number): TimeString {
 // A |----------|
 // B       |----------|  → clash with A and C
 // C              |----------|  → no clash with A
-export function hasTimeClash(a: Slot, b: Slot): boolean {
+export function hasConflict(a: Slot, b: Slot): boolean {
   if (a.day !== b.day) return false
 
   return a.start < b.end && b.start < a.end
