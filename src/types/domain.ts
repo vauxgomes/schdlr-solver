@@ -31,3 +31,9 @@ export interface Cohort {
   slots: Slot[]
   allocations: Allocation[]
 }
+
+export interface Program {
+  id: number
+  name: string
+  cohorts: Cohort[]
+}

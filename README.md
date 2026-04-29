@@ -45,7 +45,7 @@ The graph construction and resolution process happens in three isolated phases, 
 | | Define core domain interfaces (`Professor`, `Subject`, `Slot`, `Allocation`) | Done |
 | | Define graph structures (`Vertex`, `Edge`, `ScheduleGraph`) | Done |
 | | Utility functions for time conversion (e.g. parsing `"HH:mm"` to continuous minutes) | Done |
-| | Utility functions for importing data from text files or input arguments | ⬜ |
+| | Utility functions for importing data from text files or input arguments | Done |
 | **2 — Phase 1: Core Topology** | Implement the time intersection function $I(s_i, s_j)$ to detect overlapping slots | ⬜ |
 | | Build the base Graph Generator — isolated connected components per weekday | ⬜ |
 | | Unit tests: validate adjacency matrix (edges only on time conflicts) | ⬜ |

@@ -4,6 +4,9 @@
   "description": "Computational engine for academic timetabling using interval graph modeling, list coloring, and CSP",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "schdlr-solver": "dist/cli.js"
+  },
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -45,8 +48,12 @@
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
+    "prettier": "^3.8.3",
     "release-it": "^20.0.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
+  },
+  "dependencies": {
+    "commander": "^14.0.3"
   }
 }

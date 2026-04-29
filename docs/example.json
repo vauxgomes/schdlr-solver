@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "name": "Computer Science",
+    "cohorts": [
+      {
+        "id": 1,
+        "name": "Networks - Semester 1",
+        "slots": [
+          { "id": 1, "day": "Monday",    "start": 540,  "end": 630  },
+          { "id": 2, "day": "Monday",    "start": 630,  "end": 720  },
+          { "id": 3, "day": "Wednesday", "start": 540,  "end": 630  },
+          { "id": 4, "day": "Friday",    "start": 1200, "end": 1320 }
+        ],
+        "allocations": [
+          {
+            "id": 1,
+            "professor": { "id": 1, "name": "Dr. Alice" },
+            "subject":   { "id": 1, "name": "Computer Networks" },
+            "workload":  2
+          },
+          {
+            "id": 2,
+            "professor": { "id": 2, "name": "Dr. Bob" },
+            "subject":   { "id": 2, "name": "Network Security" },
+            "workload":  1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Algorithms - Semester 2",
+        "slots": [
+          { "id": 5, "day": "Tuesday",  "start": 480,  "end": 570  },
+          { "id": 6, "day": "Thursday", "start": 480,  "end": 570  }
+        ],
+        "allocations": [
+          {
+            "id": 3,
+            "professor": { "id": 3, "name": "Dr. Carol" },
+            "subject":   { "id": 3, "name": "Algorithm Design" },
+            "workload":  2
+          }
+        ]
+      }
+    ]
+  }
+]
